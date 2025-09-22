@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.discord-presence {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.discord-presence:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 4px solid #5865f2;
+    transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+}
+
+.user-details h2 {
+    color: #2c2f33;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.user-details .discriminator {
+    color: #72767d;
+    font-size: 1rem;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #f8f9fa;
+}
+
+.status-indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 2px solid white;
+}
+
+.status.online .status-indicator { 
+    background-color: #43b581; 
+}
+
+.status.idle .status-indicator { 
+    background-color: #faa61a; 
+}
+
+.status.dnd .status-indicator { 
+    background-color: #f04747; 
+}
+
+.status.offline .status-indicator { 
+    background-color: #747f8d; 
+}
+
+.status-text {
+    font-weight: 600;
+    color: #2c2f33;
+}
+
+.activities {
+    margin-top: 20px;
+}
+
+.activity {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 4px solid #5865f2;
+}
+
+.activity:last-child {
+    margin-bottom: 0;
+}
+
+.activity-name {
+    font-weight: 600;
+    color: #2c2f33;
+    margin-bottom: 5px;
+}
+
+.activity-details {
+    color: #72767d;
+    font-size: 0.9rem;
+}
+
+.activity-state {
+    color: #5865f2;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.connection-status {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.connection-status.connected {
+    background: rgba(67, 181, 129, 0.2);
+    color: #43b581;
+}
+
+.connection-status.connecting {
+    background: rgba(250, 166, 26, 0.2);
+    color: #faa61a;
+}
+
+.connection-status.disconnected {
+    background: rgba(240, 71, 71, 0.2);
+    color: #f04747;
+}
+
+.spotify {
+    background: linear-gradient(135deg, #1db954, #1ed760);
+    color: white;
+    border-left: none;
+}
+
+.spotify .activity-name,
+.spotify .activity-details,
+.spotify .activity-state {
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .discord-presence {
+        padding: 20px;
+    }
+    
+    .user-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.loading {
+    animation: pulse 2s infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+.avatar,
+.discord-presence,
+.activity {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar for activities */
+.activities::-webkit-scrollbar {
+    width: 6px;
+}
+
+.activities::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.activities::-webkit-scrollbar-thumb {
+    background: rgba(88, 101, 242, 0.3);
+    border-radius: 3px;
+}
+
+.activities::-webkit-scrollbar-thumb:hover {
+    background: rgba(88, 101, 242, 0.5);
+}

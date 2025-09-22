@@ -1,11 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Khôi's Discord Presence</title>
+    <meta name="description" content="Real-time Discord presence display using Lanyard WebSocket API">
+    <meta name="author" content="Khôi">
+    
+    <!-- Link đến file CSS riêng -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <p>Khôi dz</p>
+    <div class="header">
+        <h1>Khôi's Discord Presence</h1>
+        <p>Real-time status via Lanyard WebSocket</p>
+    </div>
+
+    <div class="connection-status" id="connectionStatus">
+        Connecting to Discord...
+    </div>
+
+    <div class="discord-presence" id="discordPresence">
+        <div class="user-info">
+            <img class="avatar" id="userAvatar" src="" alt="Avatar">
+            <div class="user-details">
+                <h2 id="username">Loading...</h2>
+                <div class="discriminator" id="discriminator">#0000</div>
+            </div>
+        </div>
+
+        <div class="status" id="statusContainer">
+            <div class="status-indicator"></div>
+            <div class="status-text" id="statusText">Offline</div>
+        </div>
+
+        <div class="activities" id="activities">
+            <!-- Activities will be populated here -->
+        </div>
+    </div>
+
+    <!-- Link đến file JavaScript riêng -->
+    <script src="discord-presence.js"></script>
+    
+    <!-- Khởi tạo Discord Presence -->
+    <script>
+        // Đợi DOM load xong
+        document.addEventListener('DOMContentLoaded', function() {
+            // Khởi tạo Discord Presence với user ID của bạn
+            const discordPresence = new DiscordPresence('688967048541503506');
+            
+            // Có thể truy cập instance globally nếu cần
+            window.discordPresence = discordPresence;
+            
+            console.log('🚀 Discord Presence đã được khởi tạo!');
+        });
+    </script>
 </body>
 </html>
