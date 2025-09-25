@@ -68,10 +68,8 @@ class WebsiteController {
     }
     
     setupBackgroundControls() {
-        // Add background effect switcher (for development/testing)
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            this.addBackgroundControls();
-        }
+        // Add background effect switcher for all environments
+        this.addBackgroundControls();
     }
     
     addBackgroundControls() {
