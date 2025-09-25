@@ -1,59 +1,100 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khôi's Discord Presence</title>
-    <meta name="description" content="Real-time Discord presence display using Lanyard WebSocket API">
-    <meta name="author" content="Khôi">
+    <title>K0idayoi - Personal Website</title>
+    <meta name="description" content="Welcome to K0idayoi's personal website with Discord presence">
+    <meta name="author" content="K0idayoi">
     
     <!-- Link đến file CSS riêng -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/assets/styles.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Khôi's Discord Presence</h1>
-        <p>Real-time status via Lanyard WebSocket</p>
-    </div>
-
-    <div class="connection-status" id="connectionStatus">
-        Connecting to Discord...
-    </div>
-
-    <div class="discord-presence" id="discordPresence">
-        <div class="user-info">
-            <img class="avatar" id="userAvatar" src="" alt="Avatar">
-            <div class="user-details">
-                <h2 id="username">Loading...</h2>
-                <div class="discriminator" id="discriminator">#0000</div>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Hello World! Welcome to my personal website.</h1>
+            <div class="local-time">
+                <span>My local Time: </span>
+                <span id="currentTime" class="time-display">00:00:00 AM</span>
             </div>
         </div>
 
-        <div class="status" id="statusContainer">
-            <div class="status-indicator"></div>
-            <div class="status-text" id="statusText">Offline</div>
+        <!-- Introduction -->
+        <div class="introduction">
+            <p>I'm <span class="highlight">K0idayoi</span>, a student majoring in Computer Science at VJU.</p>
         </div>
 
-        <div class="activities" id="activities">
-            <!-- Activities will be populated here -->
+        <!-- Discord Presence Card -->
+        <div class="discord-card" id="discordCard">
+            <div class="discord-avatar-container">
+                <img class="discord-avatar" id="userAvatar" src="/assets/image.jpeg" alt="Avatar">
+                <div class="status-indicator" id="statusIndicator"></div>
+            </div>
+            
+            <div class="discord-info">
+                <div class="discord-username">
+                    <span>User: </span>
+                    <span id="username">Loading...</span>
+                </div>
+                <div class="discord-status">
+                    <span>Status: </span>
+                    <span id="statusText">Offline</span>
+                </div>
+            </div>
+            
+            <!-- Activities will be shown here -->
+            <div class="discord-activities" id="activities"></div>
+        </div>
+
+        <!-- Connect Section -->
+        <div class="connect-section">
+            <h2>Connect with me!</h2>
+            <div class="social-links">
+                <a href="https://discord.com/invite/mJtsHWEQAg" class="social-link discord" target="_blank">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="https://www.instagram.com/ph.oihk/" class="social-link instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/minhkhoi84" class="social-link github" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Skills & Technologies Section -->
+        <div class="skills-section">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Programming Languages</h3>
+                    <p>Python, JavaScript, Java, C++</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Web Technologies</h3>
+                    <p>HTML, CSS, React, Node.js, PHP(Laravel)</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Frameworks</h3>
+                    <p>Git, Mysql, VS Code, Figma</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connection Status (hidden by default) -->
+        <div class="connection-status" id="connectionStatus" style="display: none;">
+            Connecting to Discord...
         </div>
     </div>
 
-    <!-- Link đến file JavaScript riêng -->
-    <script src="discord-presence.js"></script>
-    
-    <!-- Khởi tạo Discord Presence -->
-    <script>
-        // Đợi DOM load xong
-        document.addEventListener('DOMContentLoaded', function() {
-            // Khởi tạo Discord Presence với user ID của bạn
-            const discordPresence = new DiscordPresence('688967048541503506');
-            
-            // Có thể truy cập instance globally nếu cần
-            window.discordPresence = discordPresence;
-            
-            console.log('🚀 Discord Presence đã được khởi tạo!');
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="/assets/animated-background.js"></script>
+    <script src="/assets/discord-presence.js"></script>
+    <script src="/assets/main.js"></script>
 </body>
 </html>

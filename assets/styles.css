@@ -1,0 +1,506 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+    min-height: 100vh;
+    color: #1f2937;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated background canvas */
+#bg-canvas {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 40px 20px;
+    text-align: center;
+    border: 3px solid #ec4899;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
+    position: relative;
+}
+
+/* Header Styles */
+.header {
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.local-time {
+    font-size: 1.2rem;
+    color: #374151;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.time-display {
+    color: #ef4444;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+/* Introduction */
+.introduction {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: #4b5563;
+}
+
+.highlight {
+    color: #ec4899;
+    font-weight: 600;
+}
+
+/* Discord Card Styles */
+.discord-card {
+    background: rgba(54, 57, 63, 0.95);
+    border-radius: 16px;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.discord-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.discord-avatar-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.discord-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #5865f2;
+    transition: transform 0.3s ease;
+}
+
+.discord-avatar:hover {
+    transform: scale(1.05);
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid rgba(54, 57, 63, 0.95);
+    background-color: #747f8d;
+    transition: background-color 0.3s ease;
+}
+
+.status-indicator.online { background-color: #43b581; }
+.status-indicator.idle { background-color: #faa61a; }
+.status-indicator.dnd { background-color: #f04747; }
+.status-indicator.offline { background-color: #747f8d; }
+
+.discord-info {
+    color: #dcddde;
+    margin-bottom: 20px;
+}
+
+.discord-username,
+.discord-status {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.discord-username span:first-child,
+.discord-status span:first-child {
+    color: #b9bbbe;
+}
+
+.discord-username span:last-child {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.discord-status span:last-child {
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.discord-status .online { color: #43b581; }
+.discord-status .idle { color: #faa61a; }
+.discord-status .dnd { color: #f04747; }
+.discord-status .offline { color: #747f8d; }
+
+/* Discord Activities */
+.discord-activities {
+    margin-top: 20px;
+}
+
+.activity {
+    background: rgba(47, 49, 54, 0.8);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-left: 3px solid #5865f2;
+    color: #dcddde;
+}
+
+.activity:last-child {
+    margin-bottom: 0;
+}
+
+.activity-name {
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.activity-details {
+    color: #b9bbbe;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+}
+
+.activity-state {
+    color: #72767d;
+    font-size: 0.8rem;
+}
+
+.spotify {
+    background: linear-gradient(135deg, #1db954, #1ed760);
+    border-left: 3px solid #1db954;
+}
+
+.spotify .activity-name,
+.spotify .activity-details,
+.spotify .activity-state {
+    color: white;
+}
+
+/* Connect Section */
+.connect-section {
+    margin-top: 60px;
+}
+
+.connect-section h2 {
+    font-size: 1.8rem;
+    color: #1f2937;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-link {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.social-link.discord {
+    background: linear-gradient(135deg, #5865f2, #4752c4);
+    color: white;
+}
+
+.social-link.instagram {
+    background: linear-gradient(135deg, #e4405f, #f77737, #fcaf45);
+    color: white;
+}
+
+.social-link.github {
+    background: linear-gradient(135deg, #24292e, #586069);
+    color: white;
+}
+
+/* Skills & Technologies Section */
+.skills-section {
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+.skills-section h2 {
+    font-size: 1.8rem;
+    color: #ec4899;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+    z-index: -1;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.skill-card h3 {
+    font-size: 1.2rem;
+    color: #1f2937;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.skill-card p {
+    color: #374151;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Connection Status */
+.connection-status {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.connection-status.connected {
+    background: rgba(67, 181, 129, 0.9);
+    color: white;
+}
+
+.connection-status.connecting {
+    background: rgba(250, 166, 26, 0.9);
+    color: white;
+}
+
+.connection-status.disconnected {
+    background: rgba(240, 71, 71, 0.9);
+    color: white;
+}
+
+.spotify {
+    background: linear-gradient(135deg, #1db954, #1ed760);
+    color: white;
+    border-left: none;
+}
+
+.spotify .activity-name,
+.spotify .activity-details,
+.spotify .activity-state {
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+        margin: 10px;
+        border-width: 2px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .local-time {
+        font-size: 1rem;
+    }
+    
+    .discord-card {
+        padding: 20px;
+        margin: 30px auto;
+    }
+    
+    .discord-avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .connection-status {
+        position: static;
+        margin: 20px auto;
+        display: inline-block;
+    }
+    
+    /* Skills section responsive */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .skill-card {
+        padding: 20px;
+    }
+    
+    .skills-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 5px;
+        border-width: 2px;
+        border-radius: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .introduction {
+        font-size: 1rem;
+    }
+    
+    .discord-card {
+        padding: 15px;
+    }
+    
+    .discord-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .status-indicator {
+        width: 20px;
+        height: 20px;
+        bottom: 6px;
+        right: 6px;
+    }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.loading {
+    animation: pulse 2s infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+.avatar,
+.discord-presence,
+.activity {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar for activities */
+.activities::-webkit-scrollbar {
+    width: 6px;
+}
+
+.activities::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.activities::-webkit-scrollbar-thumb {
+    background: rgba(88, 101, 242, 0.3);
+    border-radius: 3px;
+}
+
+.activities::-webkit-scrollbar-thumb:hover {
+    background: rgba(88, 101, 242, 0.5);
+}
