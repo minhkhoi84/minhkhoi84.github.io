@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K0idayoi - Personal Website</title>
-    <meta name="description" content="Welcome to K0idayoi's personal website with Discord presence">
+    <title>K0idayoi's profile</title>
+    <meta name="description" content="Welcome to my K0idayoi's website">
     <meta name="author" content="K0idayoi">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
     
     <!-- Link đến file CSS riêng -->
     <link rel="stylesheet" href="/assets/styles.css">
@@ -17,39 +20,37 @@
     <div class="container">
         <!-- Header Section -->
         <div class="header">
-            <h1>Hello World! Welcome to my personal website.</h1>
+            <div class="profile-avatar">
+                <div class="discord-avatar-container">
+                    <img class="discord-avatar" id="userAvatar" src="/assets/image.jpeg" alt="Discord Avatar">
+                    <div class="status-indicator" id="statusIndicator"></div>
+                </div>
+            </div>
+            <h1>Hello World! Welcome to <span id="dynamicText" class="dynamic-text">K0idayoi's website</span>.</h1>
             <div class="local-time">
-                <span>My local Time: </span>
+                <i class="fas fa-clock"></i>
                 <span id="currentTime" class="time-display">00:00:00 AM</span>
             </div>
         </div>
 
-        <!-- Introduction -->
-        <div class="introduction">
-            <p>I'm <span class="highlight">K0idayoi</span>, a student majoring in Computer Science at VJU.</p>
+        <!-- Divider -->
+        <hr class="divider">
+
+        <!-- Status Section -->
+        <div class="status-section">
+            <p>Status: <span class="status-text">Offline</span></p>
         </div>
 
-        <!-- Discord Presence Card -->
-        <div class="discord-card" id="discordCard">
-            <div class="discord-avatar-container">
-                <img class="discord-avatar" id="userAvatar" src="/assets/image.jpeg" alt="Avatar">
-                <div class="status-indicator" id="statusIndicator"></div>
-            </div>
-            
-            <div class="discord-info">
-                <div class="discord-username">
-                    <span>User: </span>
-                    <span id="username">Loading...</span>
-                </div>
-                <div class="discord-status">
-                    <span>Status: </span>
-                    <span id="statusText">Offline</span>
-                </div>
-            </div>
-            
-            <!-- Activities will be shown here -->
-            <div class="discord-activities" id="activities"></div>
+        <!-- Divider -->
+        <hr class="divider">
+
+        <!-- Introduction -->
+        <div class="introduction">
+            <p>Hello my name is <span class="highlight">K0idayoi</span>, I'm currently an undergraduate at <span class="highlight">VJU</span> majoring in Computer Science.</p>
         </div>
+
+        <!-- Divider -->
+        <hr class="divider">
 
         <!-- Connect Section -->
         <div class="connect-section">
@@ -64,27 +65,12 @@
                 <a href="https://github.com/minhkhoi84" class="social-link github" target="_blank">
                     <i class="fab fa-github"></i>
                 </a>
+                <a href="mailto:your-email@example.com" class="social-link email" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
 
-        <!-- Skills & Technologies Section -->
-        <div class="skills-section">
-            <h2>Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Programming Languages</h3>
-                    <p>Python, JavaScript, Java, C++</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Web Technologies</h3>
-                    <p>HTML, CSS, React, Node.js, PHP(Laravel)</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Tools & Frameworks</h3>
-                    <p>Git, Mysql, VS Code, Figma</p>
-                </div>
-            </div>
-        </div>
 
         <!-- Connection Status (hidden by default) -->
         <div class="connection-status" id="connectionStatus" style="display: none;">

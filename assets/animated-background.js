@@ -194,6 +194,13 @@ class AnimatedBackground {
     
     // Helper method to change text colors
     changeTextColor(color) {
+        // Add/remove matrix theme class
+        if (color === 'white') {
+            document.body.classList.add('matrix-theme');
+        } else {
+            document.body.classList.remove('matrix-theme');
+        }
+        
         const elements = [
             '.header h1',
             '.introduction p',

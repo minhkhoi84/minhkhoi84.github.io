@@ -201,9 +201,23 @@ class DiscordPresence {
         }
         
         if (this.elements.userAvatar && user.avatar) {
-            this.elements.userAvatar.src = 
-                `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256`;
+            let avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256`;
+            
+            // Check for avatar decoration (frame) - Discord Nitro feature
+            if (user.avatar_decoration) {
+                // Use avatar decoration URL if available
+                avatarUrl = `https://cdn.discordapp.com/avatar-decorations/${user.id}/${user.avatar_decoration}.png?size=256`;
+            }
+            
+            this.elements.userAvatar.src = avatarUrl;
             this.elements.userAvatar.alt = `${user.username}'s avatar`;
+            
+            // Add frame class if user has avatar decoration
+            if (user.avatar_decoration) {
+                this.elements.userAvatar.classList.add('has-discord-frame');
+            } else {
+                this.elements.userAvatar.classList.remove('has-discord-frame');
+            }
         }
     }
     

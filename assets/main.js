@@ -34,6 +34,7 @@ class WebsiteController {
     constructor() {
         this.discordPresence = null;
         this.timeDisplay = null;
+        this.dynamicText = null;
         this.init();
     }
     
@@ -49,6 +50,9 @@ class WebsiteController {
     setupComponents() {
         // Initialize time display
         this.timeDisplay = new TimeDisplay();
+        
+        // Initialize dynamic text animation
+        this.dynamicText = new DynamicText();
         
         // Initialize Discord presence
         if (window.DiscordPresence) {
@@ -338,6 +342,85 @@ window.utils = {
         }
     }
 };
+
+/**
+ * Dynamic Text Animation Class - Typewriter Effect
+ * Handles the automatic text switching between "K0idayoi's website" and "my profile"
+ * with typewriter effect (typing and erasing character by character)
+ */
+class DynamicText {
+    constructor() {
+        this.textElement = document.getElementById('dynamicText');
+        this.texts = ["K0idayoi's website", "my profile"];
+        this.currentIndex = 0;
+        this.isAnimating = false;
+        this.currentText = '';
+        this.init();
+    }
+    
+    init() {
+        if (!this.textElement) return;
+        
+        // Start with empty text
+        this.textElement.textContent = '';
+        
+        // Start the animation after a short delay
+        setTimeout(() => {
+            this.startAnimation();
+        }, 2000); // Wait 2 seconds before starting
+    }
+    
+    startAnimation() {
+        // Start typing the first text
+        this.typeText();
+    }
+    
+    typeText() {
+        if (this.isAnimating) return;
+        
+        this.isAnimating = true;
+        this.textElement.classList.add('typing');
+        
+        const targetText = this.texts[this.currentIndex];
+        let charIndex = 0;
+        
+        const typeInterval = setInterval(() => {
+            if (charIndex < targetText.length) {
+                this.currentText += targetText[charIndex];
+                this.textElement.textContent = this.currentText;
+                charIndex++;
+            } else {
+                clearInterval(typeInterval);
+                
+                // Wait a bit before starting to erase
+                setTimeout(() => {
+                    this.eraseText();
+                }, 2000); // Wait 2 seconds before erasing
+            }
+        }, 100); // Type each character every 100ms
+    }
+    
+    eraseText() {
+        const eraseInterval = setInterval(() => {
+            if (this.currentText.length > 0) {
+                this.currentText = this.currentText.slice(0, -1);
+                this.textElement.textContent = this.currentText;
+            } else {
+                clearInterval(eraseInterval);
+                this.textElement.classList.remove('typing');
+                
+                // Move to next text
+                this.currentIndex = (this.currentIndex + 1) % this.texts.length;
+                this.isAnimating = false;
+                
+                // Wait a bit before typing next text
+                setTimeout(() => {
+                    this.typeText();
+                }, 500); // Wait 500ms before typing next text
+            }
+        }, 50); // Erase each character every 50ms (faster than typing)
+    }
+}
 
 // Add some fun console messages
 console.log('%c👋 Hello there!', 'color: #5865f2; font-size: 20px; font-weight: bold;');
