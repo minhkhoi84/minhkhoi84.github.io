@@ -391,9 +391,10 @@ a.highlight {
 }
 
 .status-section p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #DADADA;
     margin: 0;
+    font-weight: 700;
 }
 
 .status-text {
