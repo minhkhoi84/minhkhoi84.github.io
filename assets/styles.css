@@ -290,7 +290,7 @@ body.matrix-theme .social-link.email:hover {
 }
 
 .highlight {
-    color: #9B5CFF;
+    color: #ff4444;
     font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -305,8 +305,8 @@ a.highlight {
 }
 
 .highlight:hover {
-    color: #5865f2;
-    text-shadow: 0 0 10px rgba(88, 101, 242, 0.5);
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
     transform: scale(1.05);
 }
 
@@ -433,8 +433,8 @@ a.highlight {
 }
 
 .spotify-album {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 10px;
     object-fit: cover;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
