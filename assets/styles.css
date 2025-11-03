@@ -457,6 +457,37 @@ a.highlight {
     font-weight: 500;
 }
 
+/* Spotify Progress Bar */
+.spotify-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+.spotify-time {
+    font-size: 0.75rem;
+    color: #b3b3b3;
+    font-weight: 600;
+    min-width: 35px;
+}
+
+.spotify-bar {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.spotify-bar-fill {
+    height: 100%;
+    background: #1DB954;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 8px rgba(29, 185, 84, 0.5);
+}
+
 .spotify-link {
     display: inline-flex;
     align-items: center;

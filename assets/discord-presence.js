@@ -336,6 +336,9 @@ class DiscordPresence {
                 artistName.textContent = `by ${spotify.artist || 'Unknown Artist'}`;
             }
             
+            // Update progress bar and time
+            this.updateSpotifyProgress(spotify);
+            
             // Update Spotify link
             const spotifyLink = document.getElementById('spotify-link');
             if (spotifyLink && spotify.track_id) {
@@ -347,6 +350,45 @@ class DiscordPresence {
             // Hide Spotify activity
             spotifyActivity.style.display = 'none';
             console.log('🎵 Not playing Spotify');
+        }
+    }
+    
+    updateSpotifyProgress(spotify) {
+        if (!spotify.timestamps) return;
+        
+        const now = Date.now();
+        const start = spotify.timestamps.start;
+        const end = spotify.timestamps.end;
+        
+        // Calculate current and total duration
+        const currentMs = now - start;
+        const totalMs = end - start;
+        
+        // Format time as M:SS
+        const formatTime = (ms) => {
+            const totalSeconds = Math.floor(ms / 1000);
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        };
+        
+        // Update time displays
+        const currentTime = document.getElementById('spotify-current');
+        const durationTime = document.getElementById('spotify-duration');
+        
+        if (currentTime) {
+            currentTime.textContent = formatTime(Math.max(0, currentMs));
+        }
+        
+        if (durationTime) {
+            durationTime.textContent = formatTime(totalMs);
+        }
+        
+        // Update progress bar
+        const progressBar = document.getElementById('spotify-bar-fill');
+        if (progressBar) {
+            const percentage = Math.min(100, Math.max(0, (currentMs / totalMs) * 100));
+            progressBar.style.width = `${percentage}%`;
         }
     }
     
