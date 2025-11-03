@@ -316,49 +316,61 @@ a.highlight {
     transform: scale(1.05);
 }
 
-/* Tooltip for highlight */
+/* Speech Bubble Tooltip - Manga Style */
 .highlight[data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: 100%;
+    bottom: 120%;
     left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    transform: translateX(-50%) translateY(-10px) scale(0.8);
+    background: white;
+    color: #2d3748;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 700;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     pointer-events: none;
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.15),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.05);
+    border: 3px solid #2d3748;
     z-index: 100;
+    letter-spacing: 0.5px;
 }
 
-/* Tooltip arrow */
+/* Speech Bubble Tail - Manga Style (2 circles for organic look) */
 .highlight[data-tooltip]::before {
     content: '';
     position: absolute;
-    bottom: 100%;
+    bottom: 105%;
     left: 50%;
-    transform: translateX(-50%) translateY(2px);
-    border: 6px solid transparent;
-    border-top-color: #667eea;
+    transform: translateX(-50%) translateY(2px) scale(0.8);
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     pointer-events: none;
-    z-index: 100;
+    z-index: 99;
+    border: 3px solid #2d3748;
+    box-shadow: 
+        -8px 6px 0 -5px white,
+        -8px 6px 0 -2px #2d3748,
+        -14px 10px 0 -8px white,
+        -14px 10px 0 -5px #2d3748;
 }
 
 .highlight[data-tooltip]:hover::after,
 .highlight[data-tooltip]:hover::before {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0) scale(1);
 }
 
 /* Status Section */
