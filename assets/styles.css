@@ -305,8 +305,8 @@ a.highlight {
 }
 
 .highlight:hover {
-    color: #ff6b6b;
-    text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+    color: #9B5CFF !important;
+    text-shadow: 0 0 10px rgba(155, 92, 255, 0.5);
     transform: scale(1.05);
 }
 
