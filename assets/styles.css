@@ -262,6 +262,16 @@ body.matrix-theme .social-link.email:hover {
 .highlight {
     color: #ec4899;
     font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.highlight:hover {
+    color: #5865f2;
+    text-shadow: 0 0 10px rgba(88, 101, 242, 0.5);
+    transform: scale(1.05);
 }
 
 /* Status Section */
