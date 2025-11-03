@@ -159,6 +159,24 @@ body {
     }
 }
 
+/* Discord Decoration Overlay (Real frame from Discord) */
+.discord-decoration-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Hide custom CSS effects when real Discord decoration is present */
+.profile-avatar .discord-avatar-container.has-discord-decoration::before,
+.profile-avatar .discord-avatar-container.has-discord-decoration::after {
+    display: none;
+}
+
 /* Matrix Theme Overrides */
 body.matrix-theme .container {
     border-color: #00ff41;

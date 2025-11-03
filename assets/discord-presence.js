@@ -201,22 +201,39 @@ class DiscordPresence {
         }
         
         if (this.elements.userAvatar && user.avatar) {
-            let avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256`;
-            
-            // Check for avatar decoration (frame) - Discord Nitro feature
-            if (user.avatar_decoration) {
-                // Use avatar decoration URL if available
-                avatarUrl = `https://cdn.discordapp.com/avatar-decorations/${user.id}/${user.avatar_decoration}.png?size=256`;
-            }
+            // Get avatar URL with proper size for better quality
+            const avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith('a_') ? 'gif' : 'png'}?size=256`;
             
             this.elements.userAvatar.src = avatarUrl;
             this.elements.userAvatar.alt = `${user.username}'s avatar`;
             
-            // Add frame class if user has avatar decoration
-            if (user.avatar_decoration) {
-                this.elements.userAvatar.classList.add('has-discord-frame');
+            // Check for avatar decoration data (Discord profile effects/frames)
+            const avatarContainer = this.elements.userAvatar.parentElement;
+            if (user.avatar_decoration_data) {
+                // User has a Discord decoration/frame
+                avatarContainer.classList.add('has-discord-decoration');
+                avatarContainer.setAttribute('data-decoration-id', user.avatar_decoration_data.asset);
+                
+                // Create decoration overlay if available
+                if (user.avatar_decoration_data.asset) {
+                    const decorationUrl = `https://cdn.discordapp.com/avatar-decoration-presets/${user.avatar_decoration_data.asset}.png?size=240&passthrough=false`;
+                    
+                    // Remove old decoration if exists
+                    const oldDecoration = avatarContainer.querySelector('.discord-decoration-overlay');
+                    if (oldDecoration) oldDecoration.remove();
+                    
+                    // Create new decoration overlay
+                    const decorationImg = document.createElement('img');
+                    decorationImg.className = 'discord-decoration-overlay';
+                    decorationImg.src = decorationUrl;
+                    decorationImg.alt = 'Discord decoration';
+                    avatarContainer.appendChild(decorationImg);
+                }
             } else {
-                this.elements.userAvatar.classList.remove('has-discord-frame');
+                // No decoration - show custom CSS effect
+                avatarContainer.classList.remove('has-discord-decoration');
+                const oldDecoration = avatarContainer.querySelector('.discord-decoration-overlay');
+                if (oldDecoration) oldDecoration.remove();
             }
         }
     }
