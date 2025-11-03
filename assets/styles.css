@@ -397,10 +397,10 @@ a.highlight {
 }
 
 .status-text {
-    color: #00E5FF;
-    font-weight: 900;
-    opacity: 1;
-    font-size: 1.05rem;
+    color: #00E5FF !important;
+    font-weight: 900 !important;
+    opacity: 1 !important;
+    font-size: 1.05rem !important;
 }
 
 /* Discord Card Styles */
@@ -466,10 +466,10 @@ a.highlight {
     font-weight: 500;
 }
 
-.discord-status .online { color: #00E5FF; font-weight: 900; }
-.discord-status .idle { color: #00E5FF; font-weight: 900; }
-.discord-status .dnd { color: #00E5FF; font-weight: 900; }
-.discord-status .offline { color: #00E5FF; font-weight: 900; }
+.discord-status .online { color: #00E5FF !important; font-weight: 900 !important; }
+.discord-status .idle { color: #00E5FF !important; font-weight: 900 !important; }
+.discord-status .dnd { color: #00E5FF !important; font-weight: 900 !important; }
+.discord-status .offline { color: #00E5FF !important; font-weight: 900 !important; }
 
 /* Discord Activities */
 .discord-activities {
