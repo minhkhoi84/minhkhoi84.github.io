@@ -403,6 +403,92 @@ a.highlight {
     font-size: 1.05rem !important;
 }
 
+/* Spotify Activity Card */
+.spotify-activity {
+    margin-top: 15px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.spotify-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(30, 215, 96, 0.1);
+    border: 2px solid #1DB954;
+    border-radius: 12px;
+    padding: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.spotify-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(29, 185, 84, 0.3);
+    border-color: #1ed760;
+}
+
+.spotify-album {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.spotify-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.spotify-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #DADADA;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.spotify-artist {
+    font-size: 0.9rem;
+    color: #b3b3b3;
+    font-weight: 500;
+}
+
+.spotify-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 5px;
+    color: #1DB954;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.spotify-link:hover {
+    color: #1ed760;
+    transform: translateX(3px);
+}
+
+.spotify-link i {
+    font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Discord Card Styles */
 .discord-card {
     background: rgba(54, 57, 63, 0.95);

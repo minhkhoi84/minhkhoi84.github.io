@@ -189,6 +189,7 @@ class DiscordPresence {
         this.updateUserInfo(data.discord_user);
         this.updateStatus(data.discord_status);
         this.updateActivities(data.activities || []);
+        this.updateSpotify(data.spotify);
     }
     
     updateUserInfo(user) {
@@ -306,6 +307,47 @@ class DiscordPresence {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+    
+    updateSpotify(spotify) {
+        const spotifyActivity = document.getElementById('spotify-activity');
+        
+        if (!spotifyActivity) return;
+        
+        if (spotify && spotify.track_id) {
+            // Show Spotify activity
+            spotifyActivity.style.display = 'block';
+            
+            // Update album cover
+            const albumImg = document.getElementById('spotify-album');
+            if (albumImg && spotify.album_art_url) {
+                albumImg.src = spotify.album_art_url;
+            }
+            
+            // Update song name
+            const songTitle = document.getElementById('spotify-song');
+            if (songTitle) {
+                songTitle.textContent = spotify.song || 'Unknown Track';
+            }
+            
+            // Update artist
+            const artistName = document.getElementById('spotify-artist');
+            if (artistName) {
+                artistName.textContent = `by ${spotify.artist || 'Unknown Artist'}`;
+            }
+            
+            // Update Spotify link
+            const spotifyLink = document.getElementById('spotify-link');
+            if (spotifyLink && spotify.track_id) {
+                spotifyLink.href = `https://open.spotify.com/track/${spotify.track_id}`;
+            }
+            
+            console.log('🎵 Now playing:', spotify.song, 'by', spotify.artist);
+        } else {
+            // Hide Spotify activity
+            spotifyActivity.style.display = 'none';
+            console.log('🎵 Not playing Spotify');
+        }
     }
     
     cleanup() {
