@@ -398,8 +398,9 @@ a.highlight {
 
 .status-text {
     color: #00E5FF;
-    font-weight: 500;
-    opacity: 0.7;
+    font-weight: 900;
+    opacity: 1;
+    font-size: 1.05rem;
 }
 
 /* Discord Card Styles */
@@ -465,10 +466,10 @@ a.highlight {
     font-weight: 500;
 }
 
-.discord-status .online { color: #43b581; }
-.discord-status .idle { color: #faa61a; }
-.discord-status .dnd { color: #f04747; }
-.discord-status .offline { color: #747f8d; }
+.discord-status .online { color: #00E5FF; font-weight: 900; }
+.discord-status .idle { color: #00E5FF; font-weight: 900; }
+.discord-status .dnd { color: #00E5FF; font-weight: 900; }
+.discord-status .offline { color: #00E5FF; font-weight: 900; }
 
 /* Discord Activities */
 .discord-activities {
