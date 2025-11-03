@@ -266,6 +266,12 @@ body.matrix-theme .social-link.email:hover {
     cursor: pointer;
     position: relative;
     display: inline-block;
+    text-decoration: none;
+}
+
+a.highlight {
+    text-decoration: none;
+    color: inherit;
 }
 
 .highlight:hover {
