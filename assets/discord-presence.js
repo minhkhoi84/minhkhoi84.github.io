@@ -254,7 +254,7 @@ class DiscordPresence {
         
         if (this.elements.statusText) {
             this.elements.statusText.textContent = statusMap[currentStatus] || 'Unknown';
-            this.elements.statusText.className = currentStatus;
+            this.elements.statusText.className = `status-text ${currentStatus}`;
         }
     }
     
