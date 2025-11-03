@@ -66,6 +66,7 @@ class WebsiteController {
         // Setup other interactions
         this.setupSmoothScrolling();
         this.setupImageErrorHandling();
+        this.setupScrollToTop();
         
         console.log('✅ Website initialized successfully!');
     }
@@ -100,6 +101,30 @@ class WebsiteController {
                 console.log('Avatar loaded successfully');
             });
         }
+    }
+    
+    setupScrollToTop() {
+        const scrollButton = document.getElementById('scrollToTop');
+        if (!scrollButton) return;
+        
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+        
+        // Scroll to top when clicked
+        scrollButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        console.log('✨ Scroll to top button initialized');
     }
     
     // Public methods for external access

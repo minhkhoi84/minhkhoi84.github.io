@@ -203,7 +203,8 @@ class DiscordPresence {
         
         if (this.elements.userAvatar && user.avatar) {
             // Get avatar URL with proper size for better quality
-            const avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith('a_') ? 'gif' : 'png'}?size=256`;
+            // Add timestamp to prevent caching issues
+            const avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith('a_') ? 'gif' : 'png'}?size=256&t=${Date.now()}`;
             
             this.elements.userAvatar.src = avatarUrl;
             this.elements.userAvatar.alt = `${user.username}'s avatar`;
