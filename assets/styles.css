@@ -8,7 +8,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #000;
     min-height: 100vh;
-    color: #1f2937;
+    color: #DADADA;
     line-height: 1.4;
     position: relative;
     overflow-x: hidden;
@@ -261,7 +261,7 @@ body.matrix-theme .social-link.email:hover {
 .header h1 {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #1f2937;
+    color: #DADADA;
     margin-bottom: 10px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     text-align: center;
@@ -269,7 +269,7 @@ body.matrix-theme .social-link.email:hover {
 
 .local-time {
     font-size: 1rem;
-    color: #374151;
+    color: #DADADA;
     margin-bottom: 5px;
     font-weight: bold;
     display: flex;
@@ -291,7 +291,7 @@ body.matrix-theme .social-link.email:hover {
 .introduction {
     margin-bottom: 40px;
     font-size: 1rem;
-    color: #4b5563;
+    color: #DADADA;
     text-align: center;
 }
 
@@ -398,12 +398,12 @@ a.highlight {
 
 .status-section p {
     font-size: 1rem;
-    color: #4b5563;
+    color: #DADADA;
     margin: 0;
 }
 
 .status-text {
-    color: #ec4899;
+    color: #00E5FF;
     font-weight: 500;
     opacity: 0.7;
 }
@@ -547,7 +547,7 @@ a.highlight {
 
 .connect-section h2 {
     font-size: 1.4rem;
-    color: #1f2937;
+    color: #DADADA;
     margin-bottom: 15px;
     font-weight: 600;
 }
@@ -642,13 +642,13 @@ a.highlight {
 
 .skill-card h3 {
     font-size: 1.2rem;
-    color: #1f2937;
+    color: #DADADA;
     margin-bottom: 15px;
     font-weight: 600;
 }
 
 .skill-card p {
-    color: #374151;
+    color: #DADADA;
     font-size: 1rem;
     line-height: 1.6;
     font-weight: 500;
