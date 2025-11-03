@@ -283,8 +283,10 @@ body.matrix-theme .social-link.email:hover {
 
 .time-display {
     color: #ef4444;
-    font-weight: 600;
+    font-weight: 900;
     font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Introduction */
