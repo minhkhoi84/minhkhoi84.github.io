@@ -97,85 +97,16 @@ body {
     display: inline-block;
 }
 
-/* Animated Rainbow Ring - Discord Style */
-.profile-avatar .discord-avatar-container::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    border-radius: 50%;
-    background: conic-gradient(
-        from 0deg,
-        #00d4ff,
-        #7b68ee,
-        #9B5CFF,
-        #ff1493,
-        #ff6b6b,
-        #ffd700,
-        #00ff88,
-        #00d4ff
-    );
-    animation: rotate-gradient 3s linear infinite;
-    z-index: 0;
-}
-
-/* Inner glow layer */
-.profile-avatar .discord-avatar-container::after {
-    content: '';
-    position: absolute;
-    top: -6px;
-    left: -6px;
-    right: -6px;
-    bottom: -6px;
-    border-radius: 50%;
-    background: conic-gradient(
-        from 180deg,
-        #00d4ff,
-        #7b68ee,
-        #9B5CFF,
-        #ff1493,
-        #ff6b6b,
-        #ffd700,
-        #00ff88,
-        #00d4ff
-    );
-    animation: rotate-gradient 3s linear infinite reverse;
-    filter: blur(8px);
-    opacity: 0.6;
-    z-index: 0;
-}
-
 .profile-avatar .discord-avatar {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.3s ease;
-    position: relative;
-    z-index: 1;
-    border: 4px solid #1a1a1a;
 }
 
 .profile-avatar .discord-avatar:hover {
     transform: scale(1.05);
-}
-
-/* Speed up animation on hover */
-.profile-avatar .discord-avatar-container:hover::before,
-.profile-avatar .discord-avatar-container:hover::after {
-    animation-duration: 1s;
-}
-
-/* Rotation animation */
-@keyframes rotate-gradient {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 /* Matrix Theme Overrides */
