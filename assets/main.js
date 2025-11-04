@@ -35,6 +35,7 @@ class WebsiteController {
         this.discordPresence = null;
         this.timeDisplay = null;
         this.dynamicText = null;
+        this.loadingScreen = null;
         this.init();
     }
     
@@ -45,6 +46,31 @@ class WebsiteController {
         } else {
             this.setupComponents();
         }
+        
+        // Setup loading screen
+        this.setupLoadingScreen();
+    }
+    
+    setupLoadingScreen() {
+        this.loadingScreen = document.getElementById('loading-screen');
+        
+        // Hide loading screen when page is fully loaded
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (this.loadingScreen) {
+                    this.loadingScreen.classList.add('fade-out');
+                    
+                    // Remove from DOM after animation
+                    setTimeout(() => {
+                        if (this.loadingScreen) {
+                            this.loadingScreen.remove();
+                        }
+                    }, 500);
+                }
+            }, 500); // Show loading for at least 500ms
+        });
+        
+        console.log('🎬 Loading screen initialized');
     }
     
     setupComponents() {

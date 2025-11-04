@@ -15,8 +15,25 @@
     
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- DotLottie Web Component for animations -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <!-- DotLottie Animation -->
+            <dotlottie-wc 
+                id="loading-animation"
+                src="https://lottie.host/db4c44f1-fdfd-4de1-8854-bb5cd496c776/Qux8iLwHoc.lottie" 
+                style="width: 300px; height: 300px;" 
+                autoplay 
+                loop>
+            </dotlottie-wc>
+            <h2 class="loading-text">Loading<span class="loading-dots"></span></h2>
+        </div>
+    </div>
     <!-- YouTube Video Background -->
     <div id="youtube-background">
         <iframe 
