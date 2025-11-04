@@ -54,21 +54,34 @@ class WebsiteController {
     setupLoadingScreen() {
         this.loadingScreen = document.getElementById('loading-screen');
         
-        // Hide loading screen when page is fully loaded
-        window.addEventListener('load', () => {
+        if (!this.loadingScreen) {
+            console.warn('⚠️ Loading screen element not found');
+            return;
+        }
+        
+        // Function to hide loading screen
+        const hideLoadingScreen = () => {
             setTimeout(() => {
                 if (this.loadingScreen) {
                     this.loadingScreen.classList.add('fade-out');
                     
                     // Remove from DOM after animation
                     setTimeout(() => {
-                        if (this.loadingScreen) {
+                        if (this.loadingScreen && this.loadingScreen.parentNode) {
                             this.loadingScreen.remove();
+                            console.log('✅ Loading screen removed');
                         }
                     }, 500);
                 }
-            }, 500); // Show loading for at least 500ms
-        });
+            }, 800); // Show loading for at least 800ms
+        };
+        
+        // Hide loading screen when page is fully loaded
+        if (document.readyState === 'complete') {
+            hideLoadingScreen();
+        } else {
+            window.addEventListener('load', hideLoadingScreen);
+        }
         
         console.log('🎬 Loading screen initialized');
     }
