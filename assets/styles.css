@@ -1,7 +1,95 @@
+/* ===== CSS VARIABLES ===== */
+:root {
+    /* Colors */
+    --color-primary: #9B5CFF;
+    --color-primary-dark: #7c3aed;
+    --color-primary-darker: #6d28d9;
+    --color-primary-light: #b37fff;
+    --color-text-main: #DADADA;
+    --color-text-secondary: #b3b3b3;
+    --color-bg-dark: #000;
+    --color-bg-card: rgba(255, 255, 255, 0.05);
+    --color-border: rgba(155, 92, 255, 0.3);
+    --color-spotify: #1DB954;
+    --color-spotify-hover: #1ed760;
+    
+    /* Spacing */
+    --space-xs: 5px;
+    --space-sm: 10px;
+    --space-md: 15px;
+    --space-lg: 20px;
+    --space-xl: 30px;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(155, 92, 255, 0.2);
+    --shadow-md: 0 4px 16px rgba(155, 92, 255, 0.3);
+    --shadow-lg: 0 8px 24px rgba(155, 92, 255, 0.4);
+    --shadow-purple-glow: 0 0 20px rgba(155, 92, 255, 0.5);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.card {
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--color-text-main);
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.grid-responsive {
+    display: grid;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 /* ===== LOADING SCREEN ===== */
@@ -582,6 +670,42 @@ a.highlight {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ===== SPOTIFY PLAYLISTS SECTION ===== */
+.playlists-section {
+    margin: var(--space-xl) 0;
+}
+
+.playlists-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.playlist-card {
+    /* Kế thừa từ .card */
+}
+
+.playlist-cover {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.playlist-cover iframe {
+    display: block;
+    width: 100%;
+}
+
+/* Responsive Design for Playlists */
+@media (max-width: 768px) {
+    .playlists-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
     }
 }
 
